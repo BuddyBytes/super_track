@@ -43,6 +43,7 @@ dev_dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   http: ^1.1.0
+  intl: ^0.18.1
   provider: ^6.0.5
   syncfusion_flutter_charts: ^22.2.8
 

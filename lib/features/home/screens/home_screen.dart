@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:super_track/constants/colors.dart';
-import 'package:super_track/features/charts/screens/chart_screen.dart';
+import 'package:super_track/features/charts/screens/expanses_chart.dart';
 import 'package:super_track/features/expanses/screens/expanses_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:super_track/providers/profiles_database.dart';
@@ -28,7 +28,7 @@ class _SuperTrackHomeScreenState extends State<SuperTrackHomeScreen> {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) {
-                  return SuperTrackChartsScreen();
+                  return SuperTrackExpansesChart();
                 }),
               );
             },
@@ -103,12 +103,10 @@ class _SuperTrackHomeScreenState extends State<SuperTrackHomeScreen> {
                         children: [
                           Text('Status : Active'),
                           Text(
-                              // context
-                              //     .watch<NewProfilesProvider>()
-                              //     .profiles
-                              //     .keys
-                              //     .toList()[widget.index],
-                              '11/08/2023'),
+                            context
+                                .read<SuperTrackProfilesHiveProvider>()
+                                .profileDate(),
+                          ),
                         ],
                       ),
                     ],
@@ -155,6 +153,15 @@ class _SuperTrackHomeScreenState extends State<SuperTrackHomeScreen> {
                             ),
                             tileColor: const Color.fromARGB(60, 158, 158, 158),
                             title: Text('Store\'s Expanses '),
+                            subtitle: Text(
+                              context
+                                  .read<SuperTrackProfilesHiveProvider>()
+                                  .profileDate(),
+                              style: TextStyle(
+                                fontSize: 13,
+                                color: profilesColor[1].withOpacity(0.6),
+                              ),
+                            ),
                             leading: Icon(
                               index.isEven
                                   ? Icons.trending_up_sharp

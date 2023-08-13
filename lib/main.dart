@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:super_track/constants/colors.dart';
 import 'package:super_track/constants/hive_constants.dart';
 import 'package:super_track/db/hive%20model/profilesDb.dart';
-import 'package:super_track/features/splash/screens/splash_screen.dart';
 import 'package:provider/provider.dart';
+import 'package:super_track/features/splash/screens/splash_screen.dart';
 import 'package:super_track/providers/profiles_database.dart';
 
 void main() async {
