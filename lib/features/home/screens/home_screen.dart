@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:super_track/constants/colors.dart';
-import 'package:provider/provider.dart';
 import 'package:super_track/features/charts/screens/chart_screen.dart';
 import 'package:super_track/features/expanses/screens/expanses_screen.dart';
-import 'package:super_track/providers/profiles_provider.dart';
+import 'package:provider/provider.dart';
+import 'package:super_track/providers/profiles_database.dart';
 
 class SuperTrackHomeScreen extends StatefulWidget {
   final int index;
@@ -74,10 +74,10 @@ class _SuperTrackHomeScreenState extends State<SuperTrackHomeScreen> {
                           Text('Balance'),
                           Text(
                             context
-                                .watch<NewProfilesProvider>()
-                                .profiles
-                                .keys
-                                .toList()[widget.index],
+                                .watch<SuperTrackProfilesHiveProvider>()
+                                .hiveProfiles
+                                .getAt(widget.index)
+                                .username,
                           ),
                         ],
                       ),
@@ -87,10 +87,10 @@ class _SuperTrackHomeScreenState extends State<SuperTrackHomeScreen> {
                       Text(
                         '\$' +
                             context
-                                .watch<NewProfilesProvider>()
-                                .profiles
-                                .values
-                                .toList()[widget.index],
+                                .watch<SuperTrackProfilesHiveProvider>()
+                                .hiveProfiles
+                                .getAt(widget.index)
+                                .balance,
                         style: TextStyle(
                           fontSize: 25,
                         ),

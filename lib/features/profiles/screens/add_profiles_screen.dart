@@ -3,7 +3,7 @@ import 'package:super_track/common/button.dart';
 import 'package:super_track/constants/colors.dart';
 import 'package:super_track/common/textfileds.dart';
 import 'package:provider/provider.dart';
-import 'package:super_track/providers/profiles_provider.dart';
+import 'package:super_track/providers/profiles_database.dart';
 
 class SuperTrackAddProfilesScreen extends StatefulWidget {
   const SuperTrackAddProfilesScreen({super.key});
@@ -90,7 +90,9 @@ class _SuperTrackAddProfilesScreenState
             ),
             superTrackAddButton(
               onPressed: () {
-                context.read<NewProfilesProvider>().addNewPrfile(
+                context
+                    .read<SuperTrackProfilesHiveProvider>()
+                    .addNewProfileToHiveDatabase(
                       profileName: nameController.text,
                       profileBalance: balanceController.text,
                     );

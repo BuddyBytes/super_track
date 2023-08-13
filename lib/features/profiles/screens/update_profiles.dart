@@ -3,7 +3,7 @@ import 'package:super_track/common/button.dart';
 import 'package:super_track/constants/colors.dart';
 import 'package:super_track/common/textfileds.dart';
 import 'package:provider/provider.dart';
-import 'package:super_track/providers/profiles_provider.dart';
+import 'package:super_track/providers/profiles_database.dart';
 
 class SuperTrackUpdateProfilesScreen extends StatefulWidget {
   final int index;
@@ -65,6 +65,13 @@ class _SuperTrackUpdateProfilesScreenState
               height: 20,
             ),
             TextFieldsAddUserProfile(
+              controller: nameController,
+              hintText: 'Profile\'s Name',
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            TextFieldsAddUserProfile(
               controller: balanceController,
               hintText: 'Profile\'s Balance',
             ),
@@ -92,13 +99,10 @@ class _SuperTrackUpdateProfilesScreenState
             ),
             superTrackAddButton(
               onPressed: () {
-                context.read<NewProfilesProvider>().updateProfile(
-                      key: context
-                          .read<NewProfilesProvider>()
-                          .profiles
-                          .keys
-                          .toList()[widget.index],
-                      mapValue: balanceController.text,
+                context.read<SuperTrackProfilesHiveProvider>().updateProfile(
+                      index: widget.index,
+                      newProfileName: nameController.text,
+                      newProfileBalance: balanceController.text,
                     );
                 Navigator.pop(context);
               },
