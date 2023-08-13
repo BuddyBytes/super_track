@@ -18,4 +18,4 @@ samples, guidance on mobile development, and a full API reference.
 
 ## ScreenShots
 
-!['Splash Screen']([lib\super track screenshots\Screenshot_2023-08-14-00-47-49-622_com.example.super_track.jpg](https://github.com/BuddyBytes/super_track/blob/main/lib/super%20track%20screenshots/Screenshot_2023-08-14-00-47-49-622_com.example.super_track.jpg?raw=true))
+!['Splash Screen']([lib/super track screenshots/Screenshot_2023-08-14-00-47-49-622_com.example.super_track.jpg](https://github.com/BuddyBytes/super_track/blob/c523fe5a07d789eb1121dc7ec1e1dcbe7b6287bf/lib/super%20track%20screenshots/Screenshot_2023-08-14-00-47-49-622_com.example.super_track.jpg))
