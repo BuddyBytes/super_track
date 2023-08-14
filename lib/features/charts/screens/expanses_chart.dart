@@ -19,7 +19,7 @@ class _SuperTrackExpansesChartState extends State<SuperTrackExpansesChart> {
     _SalesData('May', 44),
     _SalesData('Aug', 42),
     _SalesData('Sep', 15),
-    _SalesData('Dec', 1),
+    _SalesData('Dec', 33),
   ];
   @override
   Widget build(BuildContext context) {

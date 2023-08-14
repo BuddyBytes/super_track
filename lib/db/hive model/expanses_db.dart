@@ -1,5 +1,7 @@
 import 'package:hive/hive.dart';
 
+part 'expanses_db.g.dart';
+
 @HiveType(typeId: 1)
 class SuperTrackExpansesDatabase extends HiveObject {
   @HiveField(0)
