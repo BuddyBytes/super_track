@@ -5,8 +5,9 @@ import 'package:super_track/constants/colors.dart';
 import 'package:super_track/constants/hive_constants.dart';
 import 'package:super_track/db/hive%20model/profilesDb.dart';
 import 'package:provider/provider.dart';
-import 'package:super_track/features/splash/screens/splash_screen.dart';
 import 'package:super_track/providers/profiles_database.dart';
+import 'package:super_track/routers/routers_name.dart';
+import 'package:super_track/routers/super_track_routers.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +22,7 @@ void main() async {
   await Hive.openBox<SuperTrackProfilesLocalDb>(hiveBoxProfiles);
 
   // create new box to store the application profiles's expanses and all other related stuffs
-  // await Hive.openBox<SuperTrackProfilesLocalDb>(hiveBoxExpanses);
+  await Hive.openBox<SuperTrackProfilesLocalDb>(hiveBoxExpanses);
 
   runApp(
     // wrap all the app's screen with providers (public access)
@@ -47,7 +48,8 @@ class SuperTrack extends StatelessWidget {
             elevation: 0,
           ),
         ),
-        home: SuperTrackSplashScreen(),
+        onGenerateRoute: superTrackRouteCountrollers,
+        initialRoute: splashScreen,
       ),
     );
   }

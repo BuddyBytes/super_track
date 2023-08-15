@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:super_track/constants/colors.dart';
-import 'package:super_track/features/charts/screens/expanses_chart.dart';
-import 'package:super_track/features/expanses/screens/expanses_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:super_track/providers/profiles_database.dart';
+import 'package:super_track/routers/routers_name.dart';
 
 class SuperTrackHomeScreen extends StatefulWidget {
   final int index;
@@ -25,11 +24,9 @@ class _SuperTrackHomeScreenState extends State<SuperTrackHomeScreen> {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.push(
+              Navigator.pushNamed(
                 context,
-                MaterialPageRoute(builder: (context) {
-                  return SuperTrackExpansesChart();
-                }),
+                chartScreen,
               );
             },
             icon: Icon(
@@ -188,11 +185,9 @@ class _SuperTrackHomeScreenState extends State<SuperTrackHomeScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(
+          Navigator.pushNamed(
             context,
-            MaterialPageRoute(builder: (context) {
-              return SuperTrackExpansesScreens();
-            }),
+            addExpansesScreen,
           );
         },
         child: Icon(

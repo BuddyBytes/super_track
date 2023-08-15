@@ -3,6 +3,7 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:flutter/material.dart';
 
 class SuperTrackExpansesChart extends StatefulWidget {
+  static const chartName = "chart";
   const SuperTrackExpansesChart({super.key});
 
   @override

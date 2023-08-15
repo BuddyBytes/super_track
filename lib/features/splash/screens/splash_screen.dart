@@ -31,6 +31,7 @@ class _SuperTrackSplashScreenState extends State<SuperTrackSplashScreen> {
     final deviceSize = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

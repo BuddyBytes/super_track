@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:super_track/constants/colors.dart';
-import 'package:super_track/features/home/screens/home_screen.dart';
-import 'package:super_track/features/profiles/screens/add_profiles_screen.dart';
 import 'package:provider/provider.dart';
-import 'package:super_track/features/profiles/screens/update_profiles.dart';
 import 'package:super_track/providers/profiles_database.dart';
+import 'package:super_track/routers/routers_name.dart';
 
 class SuperTrackProfilesScreen extends StatefulWidget {
   const SuperTrackProfilesScreen({super.key});
@@ -41,11 +39,9 @@ class _SuperTrackProfilesScreenState extends State<SuperTrackProfilesScreen> {
                   },
                   child: IconButton(
                     onPressed: () {
-                      Navigator.push(
+                      Navigator.pushNamed(
                         context,
-                        MaterialPageRoute(builder: (context) {
-                          return SuperTrackAddProfilesScreen();
-                        }),
+                        addProfileScreen,
                       );
                     },
                     icon: Icon(
@@ -81,13 +77,10 @@ class _SuperTrackProfilesScreenState extends State<SuperTrackProfilesScreen> {
                                   children: [
                                     TextButton(
                                       onPressed: () {
-                                        Navigator.push(
+                                        Navigator.pushNamed(
                                           context,
-                                          MaterialPageRoute(builder: (context) {
-                                            return SuperTrackUpdateProfilesScreen(
-                                              index: index,
-                                            );
-                                          }),
+                                          updateProfileScreen,
+                                          arguments: index,
                                         );
                                       },
                                       child: Text(
@@ -116,7 +109,8 @@ class _SuperTrackProfilesScreenState extends State<SuperTrackProfilesScreen> {
                                                 TextButton(
                                                   onPressed: () {
                                                     value.removeFromDatabase(
-                                                        index: index);
+                                                      index: index,
+                                                    );
                                                     Navigator.pop(context);
                                                   },
                                                   child: Text(
@@ -158,13 +152,10 @@ class _SuperTrackProfilesScreenState extends State<SuperTrackProfilesScreen> {
                         );
                       },
                       onTap: () {
-                        Navigator.push(
+                        Navigator.pushNamed(
                           context,
-                          MaterialPageRoute(builder: (context) {
-                            return SuperTrackHomeScreen(
-                              index: index,
-                            );
-                          }),
+                          homeScreen,
+                          arguments: index,
                         );
                       },
                       child: ListTile(
